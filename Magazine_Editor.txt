@@ -1,0 +1,148 @@
+
+geography = ["national geographic", "glaciers", 1970, "mars", 3, "aurora", "trump", "egypt", "hebrew"]
+
+music = ["music art magazine", "composer", "orchestral music", 12, ["mozart", "bach", "beethoven"]]
+
+film = ["film comment magazine", "legendary", ["robert de niro", "leonardo dicaprio"], ["the matrix", "inception"], 9.81] 
+
+fashion = ["vogue", 2018, "summer trends", "top collections", "donatella versace"]
+
+rubrics = [geography, music, film, fashion]
+
+
+####create a database with many words that refer to other lists of words
+ManyWords = dict({"national geographic":["geography","anthropology", "archaeology", "exploration"],
+             "orchestral music":["large instrumental ensemble", "classical music", "philharmonic orchestra"],
+             "vogue":["fashion and lifestyle", "style", "healthy body initiative"],
+             "trend":["general tendency to  change", "movement"]})
+
+
+
+####navigate to a rubric
+
+###define function to get input from user
+###and based on what the user chooses, show content inside rubric
+
+
+def direct(list):
+    print(list)
+
+
+####define function to update a rubric
+    
+###check if the words limit has been reached
+###everytime the user appends another word to a rubric
+
+def update_list(list, arg):
+            if arg not in list and len(list) < 7:
+                list.append(arg)
+            elif arg not in list and len(list) >= 7:
+                print("You have reached the limit of 7 words. Save your work before starting a new article.")
+            elif arg in list and len(list) < 7:
+                print("Word already used")
+                list.append(arg)
+            else:
+                print("You have reached the limit of 7 words. Save you work before starting a new article.")
+                return list
+
+    
+
+
+####gather all info of one type from a rubric and store it in separate containers
+
+###define function to categorize items by type and place them separately
+###so that we can retrieve categories by rubric name
+
+##make recommendations about how to use items
+##based on their data type
+
+#count items of each type from a rubric
+            
+
+def categorize_items(list):
+    str_list = []
+    int_list = []
+    float_list = []
+    lists_list = []
+
+    for item in list:
+        print(item)
+
+    for item in list:
+        if type(item) is str:
+            str_list.append(item)
+    print("\n",
+          "Strings:",
+          "\n\n",
+          "*You can use an item from this list as a noun or adjective to describe a name, location, feature or to denote an action.*",
+          "\n\n",
+          str_list,
+          "\n\n",
+          "Words:",
+          len(str_list),
+          "\n\n")
+
+    
+    for item in list:
+        if type(item) is int:
+            int_list.append(item)
+    print("\n",
+          "Integers:",
+          "\n\n",
+          "*You can use integers as simply numbers, for time or quantities.*",
+          "\n\n",
+          int_list,
+          "\n\n",
+          "Words:",
+          len(int_list),
+          "\n\n")
+
+    for item in list:
+        if type(item) is float:
+            float_list.append(item)
+    print("\n",
+          "Numbers with decimal point:",
+          "\n\n",
+          "*You can use numbers with decimal point to reffer to averages or precise measurements.*",
+          "\n\n",
+          float_list,
+          "\n\n",
+          "Count:",
+          len(float_list),
+          "\n\n")
+
+    for item in list:
+        if type(item) is type(list):
+            lists_list.append(item)
+    print("\n",
+          "Lists:",
+          "\n\n",
+          "*You can use lists for enumeration.*",
+          "\n\n",
+          lists_list,
+          "\n\n",
+          "Count:",
+          len(lists_list),
+          "\n\n")
+    
+
+
+
+
+####define function to count all words stored inside a rubric
+def count_items(list):
+        print(len(list))
+
+
+
+####return words related to the word that we want to use
+
+###define function to retrieve words from a data base
+###that are associated with a word chosen by the user
+
+
+def words(dict, key):
+        return dict[key]
+    
+            
+
